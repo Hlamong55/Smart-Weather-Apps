@@ -1,7 +1,8 @@
 import { useState } from "react";
+import LocationModal from "../components/LocationModal";
 
 const Home = () => {
-    const [click, setClick] = useState("")
+    const [click, setClick] = useState(false)
     console.log(click);
 
     return (
@@ -18,6 +19,10 @@ const Home = () => {
                     Check Weather
                 </button>
             </div>
+
+            {
+                click && <LocationModal onClose={()=>setClick(false)}></LocationModal>
+            }
         </div>
     );
 };
