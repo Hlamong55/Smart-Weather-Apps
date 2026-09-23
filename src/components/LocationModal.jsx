@@ -10,6 +10,20 @@ const LocationModal = ({ onClose }) => {
     console.log(value);
   };
 
+
+  const handleGeoLocations = ()=>{
+    navigator.geolocation.getCurrentPosition((positions)=>{
+        const {latitude, longitude} = positions.coords
+        console.log({latitude, longitude});
+    }, (error)=>{
+        console.log(error);
+    }, {
+        timeout: 1000
+    })
+  }
+
+
+
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-gray-600/70">
       <div className="h-85 w-md bg-gray-200 shadow-2xl rounded-2xl p-4">
@@ -24,20 +38,20 @@ const LocationModal = ({ onClose }) => {
           </button>
         </div>
 
-        <div className="py-5">
+        <div className="pt-5">
           <form onSubmit={handleSubmit} className="space-y-5">
             <input
               placeholder="Enter City Name"
               type="text"
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className="w-full border p-1 rounded-lg"
+              className="w-full border-2 p-2.5 rounded-lg"
             />
 
-            <div className=" flex justify-center">
+            <div>
               <button
                 type="submit"
-                className="text-lg font-medium px-4 py-2 bg-blue-600 rounded-2xl text-white hover:scale-105 transition-all hover:bg-blue-800"
+                className="text-lg w-full font-medium px-4 py-2 bg-blue-600 rounded-2xl text-white hover:scale-105 transition-all hover:bg-blue-800"
               >
                 Get Weather
               </button>
@@ -45,12 +59,13 @@ const LocationModal = ({ onClose }) => {
           </form>
         </div>
 
-        <div className="text-center">or</div>
+        <div className="text-center font-semibold py-2">or</div>
 
-        <div className=" flex justify-center">
+        <div>
           <button
             type="button"
-            className="text-lg font-medium px-4 py-2 bg-blue-600 rounded-2xl text-white hover:scale-105 transition-all hover:bg-blue-800"
+            onClick={handleGeoLocations}
+            className="text-lg w-full font-medium px-4 py-2 bg-blue-600 rounded-2xl text-white hover:scale-105 transition-all hover:bg-blue-800"
           >
             Use My Location
           </button>
