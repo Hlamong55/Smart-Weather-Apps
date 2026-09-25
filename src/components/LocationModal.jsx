@@ -1,9 +1,18 @@
 import { X } from "lucide-react";
 import { useState } from "react";
 import { getGeolocation } from "../services/geolocation";
+import { useNavigate } from "react-router";
 
 const LocationModal = ({ onClose }) => {
+  const navigate = useNavigate("")
   const [city, setCity] = useState("");
+  const [error, setError] = useState("")
+
+
+  const goToPage = (location) => {
+    navigate("/weather", {state: {location}})
+  }
+
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -11,8 +20,11 @@ const LocationModal = ({ onClose }) => {
     // console.log(value);
     
     try{
-        const result = await getGeolocation(value)
-        console.log(result);
+        const location = await getGeolocation(value)
+        if(!location){
+            setError("Geocoding request failed!")
+        }
+        goToPage(location)
     } catch (error) {
         console.log(error);
     }
