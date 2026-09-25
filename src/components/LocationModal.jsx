@@ -5,11 +5,17 @@ import { getGeolocation } from "../services/geolocation";
 const LocationModal = ({ onClose }) => {
   const [city, setCity] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     const value = city.trim();
     // console.log(value);
-    getGeolocation(value)
+    
+    try{
+        const result = await getGeolocation(value)
+        console.log(result);
+    } catch (error) {
+        console.log(error);
+    }
   };
 
 
