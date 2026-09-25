@@ -18,6 +18,10 @@ const LocationModal = ({ onClose }) => {
     e.preventDefault();
     const value = city.trim();
     // console.log(value);
+    if(!value) {
+        setError("Please enter a valid City name!!")
+        return
+    }
     
     try{
         const location = await getGeolocation(value)
@@ -26,7 +30,7 @@ const LocationModal = ({ onClose }) => {
         }
         goToPage(location)
     } catch (error) {
-        console.log(error);
+        setError(error);
     }
   };
 
@@ -34,9 +38,10 @@ const LocationModal = ({ onClose }) => {
   const handleGeoLocations = ()=>{
     navigator.geolocation.getCurrentPosition((positions)=>{
         const {latitude, longitude} = positions.coords
-        console.log({latitude, longitude});
+        // console.log({latitude, longitude});
+        goToPage({name: "Your Location", lat: latitude, lon: longitude})
     }, (error)=>{
-        console.log(error);
+        setError(error);
     }, {
         timeout: 1000
     })
@@ -90,6 +95,8 @@ const LocationModal = ({ onClose }) => {
             Use My Location
           </button>
         </div>
+
+        { error && <p className="text-red-600 text-md font-medium text-center mt-5">{error}</p>}
 
       </div>
     </div>
