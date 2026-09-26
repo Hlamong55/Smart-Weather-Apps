@@ -36,14 +36,19 @@ const LocationModal = ({ onClose }) => {
 
 
   const handleGeoLocations = ()=>{
+    if(!navigator.geolocation){
+        setError("Geo Location not found!!")
+        return
+    }
+
     navigator.geolocation.getCurrentPosition((positions)=>{
         const {latitude, longitude} = positions.coords
         // console.log({latitude, longitude});
         goToPage({name: "Your Location", lat: latitude, lon: longitude})
     }, (error)=>{
-        setError(error);
+        setError(error.message);
     }, {
-        timeout: 1000
+        timeout: 10000
     })
   }
 

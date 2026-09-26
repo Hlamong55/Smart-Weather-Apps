@@ -1,9 +1,10 @@
 import { useLocation } from "react-router";
+import { getWeather } from "../services/get-weather";
 
 const Weather = () => {
     const value = useLocation()
     const place = value.state.location
-    console.log(place);
+    getWeather(place)
     return (
         <div>
             This is weather page
