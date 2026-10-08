@@ -603,10 +603,9 @@ const WMO_CODE = {
 
 
 
-
 export const getWeather = async (place) =>{
     // console.log("Function:", place);
-    const { lat, lon, name } = place
+    const { lat, lon } = place
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m,wind_direction_10m,rain,apparent_temperature,is_day` ;
 
     const result = await fetch(url)
@@ -617,10 +616,22 @@ export const getWeather = async (place) =>{
     if (!now){
         throw new Error("Weathe details not found!!");
     }
+
+
+    const weather = WMO_CODE[now.weather_code]
+
+    const icon = weather.icon === "clear" && now.is_day === 0 ? "clear_night" : weather.icon
+
+
     return {
         tempareture: Math.round(now.temperature_2m),
         humidity: now.relative_humidity_2m,
         windSpeed: now.wind_speed_10m,
-        feelsLike: Math.round(now.apparent_temperature)
+        feelsLike: Math.round(now.apparent_temperature),
+
+        condition: weather.condition,
+        description: weather.description,
+        label: weather.label,
+        icon 
     }
 }
