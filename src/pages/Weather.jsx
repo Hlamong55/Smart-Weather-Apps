@@ -1,6 +1,7 @@
 import { useLocation } from "react-router";
 import { getWeather } from "../services/get-weather";
 import { useEffect, useState } from "react";
+import { MapPin } from "lucide-react";
 
 const Weather = () => {
     const value = useLocation()
@@ -32,8 +33,19 @@ const Weather = () => {
         <div>
             <div className="grid md:grid-cols-2 gap-5">
                 <div className="shadow-2xl rounded-2xl p-5">
-                    <div>
-                        <h1 className="text-3xl text-purple-600 font-bold ">Todya's Weather Details</h1>
+                    <div className="space-y-5">
+                        <h1 className="text-3xl text-purple-700 font-bold ">Todya's Weather Details</h1>
+
+                        <div className="flex items-center gap-3 text-blue-600">
+                            <MapPin size={30}></MapPin>
+                            <h2 className="text-3xl  font-bold ">{place.name}</h2>
+                        </div>
+
+                        <div className="flex items-center gap-16">
+                            <h3 className="text-6xl text-blue-900 font-extrabold">{weather?.tempareture}</h3>
+                            <p className="text-5xl text-blue-900 font-extrabold">{weather?.description}</p>
+                        </div>
+
                     </div>
                 </div>
             </div>
