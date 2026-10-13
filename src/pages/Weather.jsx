@@ -45,6 +45,13 @@ const Weather = () => {
                             <h3 className="text-6xl text-blue-900 font-extrabold">{weather?.tempareture}</h3>
                             <p className="text-5xl text-blue-900 font-extrabold">{weather?.description}</p>
                         </div>
+                        
+                        <div className="flex items-center justify-between">
+                            <div className="rounded-2xl shadow-2xl text-center p-4">
+                            <h3 className="text-lg text-blue-900 font-bold">Feels Like</h3>
+                            <p className="text-5xl text-blue-900 font-extrabold">{weather?.feelsLike}</p>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
