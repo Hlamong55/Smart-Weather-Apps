@@ -49,7 +49,17 @@ const Weather = () => {
                         <div className="flex items-center justify-between">
                             <div className="rounded-2xl shadow-2xl text-center p-4">
                             <h3 className="text-lg text-blue-900 font-bold">Feels Like</h3>
-                            <p className="text-5xl text-blue-900 font-extrabold">{weather?.feelsLike}</p>
+                            <p className="text-4xl text-blue-900 font-extrabold">{weather?.feelsLike}</p>
+                            </div>
+
+                            <div className="rounded-2xl shadow-2xl text-center p-4">
+                            <h3 className="text-lg text-blue-900 font-bold">Humidity</h3>
+                            <p className="text-4xl text-blue-900 font-extrabold">{weather?.humidity}</p>
+                            </div>
+
+                            <div className="rounded-2xl shadow-2xl text-center p-4">
+                            <h3 className="text-lg text-blue-900 font-bold">Wind Speed</h3>
+                            <p className="text-4xl text-blue-900 font-extrabold">{weather?.windSpeed}</p>
                             </div>
                         </div>
 
