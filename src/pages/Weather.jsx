@@ -31,40 +31,59 @@ const Weather = () => {
 
     return (
         <div>
-            <div className="grid md:grid-cols-2 gap-5">
+            <div className="grid md:grid-cols-2 gap-10">
+                
+                {/* left div */}
                 <div className="shadow-2xl rounded-2xl p-5">
                     <div className="space-y-5">
-                        <h1 className="text-3xl text-purple-700 font-bold ">Todya's Weather Details</h1>
+                        <h1 className="text-2xl font-extrabold text-center">Today's Weather Details</h1>
 
                         <div className="flex items-center gap-3 text-blue-600">
                             <MapPin size={30}></MapPin>
                             <h2 className="text-3xl  font-bold ">{place.name}</h2>
                         </div>
 
-                        <div className="flex items-center gap-16">
-                            <h3 className="text-6xl text-blue-900 font-extrabold">{weather?.tempareture}</h3>
+                        <div className="flex items-center gap-10">
+                            <h3 className="text-6xl text-blue-900 font-extrabold">{weather?.tempareture} C</h3>
                             <p className="text-5xl text-blue-900 font-extrabold">{weather?.description}</p>
                         </div>
                         
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between gap-5">
                             <div className="rounded-2xl shadow-2xl text-center p-4">
-                            <h3 className="text-lg text-blue-900 font-bold">Feels Like</h3>
+                            <h3 className="text-lg text-blue-600 font-bold">Feels Like</h3>
                             <p className="text-4xl text-blue-900 font-extrabold">{weather?.feelsLike}</p>
                             </div>
 
                             <div className="rounded-2xl shadow-2xl text-center p-4">
-                            <h3 className="text-lg text-blue-900 font-bold">Humidity</h3>
+                            <h3 className="text-lg text-blue-600 font-bold">Humidity</h3>
                             <p className="text-4xl text-blue-900 font-extrabold">{weather?.humidity}</p>
                             </div>
 
                             <div className="rounded-2xl shadow-2xl text-center p-4">
-                            <h3 className="text-lg text-blue-900 font-bold">Wind Speed</h3>
+                            <h3 className="text-lg text-blue-600 font-bold">Wind Speed</h3>
                             <p className="text-4xl text-blue-900 font-extrabold">{weather?.windSpeed}</p>
                             </div>
                         </div>
 
                     </div>
                 </div>
+
+
+                {/* right div */}
+                <div className="shadow-2xl rounded-2xl p-5 flex flex-col items-center justify-between">
+                    <div>
+                        <h2 className="text-2xl font-extrabold text-center">Live in {place.name}</h2>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                        <p className="text-5xl text-blue-900 font-extrabold">{weather?.description}</p>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                        <span className="rounded-full border p-2 border-blue-900 text-lg font-medium">Feel's Like: {weather?.feelsLike}</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
