@@ -206,11 +206,11 @@ const Weather = () => {
                     </div>
 
 
-                    <div className="shadow-2xl rounded-2xl p-5">
-                        <h2 className="text-3xl  font-bold ">Smart Recommandations</h2>
+                    <div className="shadow-2xl rounded-2xl p-5 space-y-2">
+                        <h2 className="text-2xl  font-semibold ">Smart Recommandations</h2>
 
-                        <div>
-                            { weather?.tempareture > 24 && "This is warm today, take water bottle when go outside" }
+                        <div className="text-lg font-bold text-blue-700 bg-blue-100 rounded-full p-1 text-center">
+                            " { getRecommand(weather)?.text } "
                         </div>
                     </div>
                 </div>
