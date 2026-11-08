@@ -2,8 +2,8 @@ import { useLocation } from "react-router";
 import { getWeather } from "../services/get-weather";
 import { useEffect, useState } from "react";
 import WeatherCard from "../components/WeatherCard";
-import Recommandation from "../components/Recommandation";
 import WeatherType from "../components/WeatherType";
+import RecommandationCard from "../components/RecommandationCard";
 import { getRecommandation } from "../utilities/getRecommandation";
 
 const Weather = () => {
@@ -45,7 +45,7 @@ const Weather = () => {
                     </div>
 
                     {/* recommandation card */}
-                   <Recommandation recommandation={getRecommandation(weather)}></Recommandation>
+                   <RecommandationCard recommandation={getRecommandation(weather)}></RecommandationCard>
                 </div>
                 
 
