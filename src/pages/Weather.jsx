@@ -14,6 +14,10 @@ const Weather = () => {
     
     useEffect(()=>{
 
+
+
+
+        
         if(!place){
             return
         }
