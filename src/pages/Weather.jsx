@@ -13,10 +13,6 @@ const Weather = () => {
     // console.log("weather", weather);
     
     useEffect(()=>{
-
-
-
-
         
         if(!place){
             return
