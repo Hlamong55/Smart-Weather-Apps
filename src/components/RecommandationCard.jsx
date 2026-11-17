@@ -25,7 +25,7 @@ export default function RecommendationCard({ recommendation }) {
       style={{ borderLeftColor: style.color }}
     >
       <span className="inline-flex items-center justify-center w-16 h-16 rounded-[20px] bg-white/90 ring-1 ring-white shadow-sm-soft shrink-0">
-        <WeatherLottie kind="advice" name={recommendation.type} className="w-11.5 h-11.5" />
+        <WeatherLottie kind="advice" name={recommendation?.type} className="w-11.5 h-11.5" />
       </span>
       <div>
         <div className="flex items-center gap-3 mb-2 max-[480px]:flex-wrap">
@@ -33,14 +33,14 @@ export default function RecommendationCard({ recommendation }) {
             className="text-[11px] font-bold uppercase tracking-widebadge text-white rounded-full px-3 py-1"
             style={{ background: style.color }}
           >
-            {recommendation.label}
+            {recommendation?.label}
           </span>
           <h3 className="text-[12.5px] font-bold tracking-widelabel3 uppercase text-slate m-0">
             Your smart suggestion
           </h3>
         </div>
         <p className="text-[17.5px] font-semibold leading-[1.55] text-navy m-0">
-          {recommendation.text}
+          {recommendation?.text}
         </p>
       </div>
     </section>
