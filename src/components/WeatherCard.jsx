@@ -23,7 +23,7 @@ const WeatherCard = ({weather, place}) => {
                             <p className="text-5xl text-blue-900 font-extrabold">{weather?.description}</p>
                         </div>
                         
-                        <div className="flex items-center justify-between gap-5">   
+                        <div className="flex items-center justify-between ">   
 
                             {
                                 stat.map((s, index)=>(<StatCard key={index} s={s}></StatCard>))

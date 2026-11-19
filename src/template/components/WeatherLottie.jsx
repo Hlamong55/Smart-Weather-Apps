@@ -1,7 +1,13 @@
-import { LottieLight } from "lottie-react";
+
+import { Lottie } from "lottie-react";
 
 export default function WeatherLottie({ kind, name, className = "" }) {
-  return (
-    <LottieLight src={`/animations/${kind}/${name}.json`} className={className} autoplay loop />
-  );
+    return (
+        <Lottie
+            src={`/animations/${kind}/${name}.json`}
+            className={className}
+            autoplay
+            loop
+        />
+    );
 }

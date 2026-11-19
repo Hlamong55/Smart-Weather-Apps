@@ -39,7 +39,7 @@ const Weather = () => {
                 {/* left div */}
                 <div className="space-y-3">
 
-                    <div className="shadow-2xl rounded-2xl p-5">
+                    <div className="shadow-xl rounded-2xl p-5">
                     {/* weather card */}
                     <WeatherCard weather={weather} place={place}></WeatherCard>
                     </div>
