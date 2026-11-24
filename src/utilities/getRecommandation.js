@@ -7,21 +7,21 @@ export const getRecommandation = (weather) => {
         case "clear":
         case "mainly_clear":
             return {
-                type: "sun",
+                type: "sunny",
                 label: "Sunny",
                 text: "It's a clear day outside. Enjoy the sunshine!"
             };
 
         case "partly_cloudy":
             return {
-                type: "cloud",
+                type: "cloudy",
                 label: "Partly Cloudy",
                 text: "It's partly cloudy outside. Have a great day!"
             };
 
         case "overcast":
             return {
-                type: "cloud",
+                type: "cloudy",
                 label: "Overcast",
                 text: "The sky is overcast. You may want to carry an umbrella."
             };

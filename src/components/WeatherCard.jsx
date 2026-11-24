@@ -30,17 +30,19 @@ export default function WeatherCard({ locationName, weather }) {
 
         <div className="flex items-end gap-5 mt-6 mb-7 max-[380px]:flex-col max-[380px]:items-start max-[380px]:gap-2">
           <span
-            className="font-display text-[100px] max-[480px]:text-[78px] font-extrabold tracking-tightx leading-[0.82]"
-            style={{ color: theme.strong }}
+            className="font-display text-[100px] max-[480px]:text-[78px] font-extrabold tracking-tightx leading-[0.82] text-blue-900"
+            // style={{ color: theme.strong }}
           >
-            {weather?.temperature}
+            {weather?.tempareture}
             <span className="text-[52px] max-[480px]:text-[40px] align-top">°</span>
           </span>
+          
           <div className="pb-2">
             {/* Short headline, e.g. "Rain" */}
-            <span className="block font-display text-[21px] font-bold">{weather?.conditionLabel}</span>
+            <span className="block font-display text-[21px] font-bold">{weather?.condition}</span>
+
             {/* Exact meaning of the weather code, e.g. "Heavy rain" */}
-            <span className="block text-[14px] text-slate">{weather?.description}</span>
+            <span className="block text-[14px] font-">{weather?.description}</span>
           </div>
         </div>
 

@@ -21,7 +21,7 @@ const Weather = () => {
         const fetchWeather = async()=> {
         try {
             const result = await getWeather(place)
-            // console.log(result);
+            console.log(result);
             setWeather(result);
         } catch(error) {
             console.log(error);
